@@ -1,0 +1,83 @@
+{%load static%}
+
+<html>
+
+<head>
+	<title>
+		{%block titulo%} Soporte Técnico 24hrs {%endblock titulo%}
+	</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--Import Google Icon Font-->
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+	<link rel="stylesheet" type="text/css" href="{%static 'css/main.css'%}">
+	<!--Import Google Icon Font-->
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!--Import materialize.css-->
+	<link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+
+	<!--Let browser know website is optimized for mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" /> {%block head%} {%endblock head%}
+</head>
+
+<body>
+
+	<!--Import jQuery before materialize.js-->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/materialize.min.js"></script>
+<<<<<<< HEAD
+	<nav class="blue darken-4">
+=======
+
+	<nav class="blue darken-4 navbar-fixed">
+>>>>>>> Ivan
+		<div class="nav-wrapper">
+			<a href="{%url 'home:home'%}" class="brand-logo">Soporte Técnico en computadoras</a>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li><a href="{%url 'home:home'%}">Inicio</a></li>
+				<li><a href="#">Acerca</a></li>
+				<li><a href="#">Iniciar Sesión</a></li>
+				<li><a href="#">Registrate</a></li>
+				<li><a href="{%url 'tienda:tienda'%}">Tienda</a></li>
+				<li><a href="{%url 'cart:cart_detail'%}">
+				{%with total_items=cart|length%}<img src="/media/tienda/carrito.png {{producto.imegen}}" height="20">
+				{{total_items}} {%if total_items > 0%}
+			 	{{total_items|pluralize}}
+			</a>{%else%} {{tota_items}} {%endif%}{%endwith%}</li>
+			</ul>
+		</div>
+	</nav>
+
+<<<<<<< HEAD
+	{%block content%} {%endblock content%}
+	<nav class="black darken-4">
+		<ul id="nav-mobile" class="center hide-on-med-and-dow">
+			<li><a>Soporte las 24 horas</a></li>
+			<ul id="nav-mobile" class="right hide-on-med-and-dow">
+				<li><a>Llamanos 7711548189</a></li>
+			</ul>
+	</nav>
+=======
+	<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+	    <a class="btn-floating btn-large red">
+	      <i class="large material-icons">mode_edit</i>
+	    </a>
+	    <ul>
+	      <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+	      <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+	      <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+	      <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+	    </ul>
+    </div>
+
+	{%block content%} 
+
+	{%endblock content%}
+
+>>>>>>> Ivan
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
+	{%block scripts%} {%endblock scripts%}
+</body>
+
+</html>

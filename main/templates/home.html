@@ -1,0 +1,42 @@
+{% extends 'base.html'%} 
+{% block content%}
+
+
+
+	<div class="slider fullscreen">
+	    <ul class="slides">
+	      <li>
+		        <img src="/media/tienda/slider/s1.jpg"> <!-- random image -->
+		        <div class="caption left-align">
+			          <h2 class="black-text">¡Aprende!</h2>
+			          <h5 class="black-text">¡Desarrolla tus skills como developer!</h5>
+		        </div>
+	      </li>
+	      <li>
+		        <img src="/media/tienda/slider/s1.jpg"> <!-- random image -->
+		        <div class="caption left-align">
+			          <h2 class="white-text">¡Crear!</h2>
+			          <h5 class="white-text">Es lo de hoy</h5>
+		        </div>
+		  </li>
+		  <li>
+			   	 <img src="/media/tienda/slider/st.jpg"> <!-- random image -->
+		      	 <div class="caption left-align">
+			          <h2 class="black-text">¡Trabaja en equipo!</h2>
+			          <h5 class="black-text">Comparte conocimientos</h5>
+		        </div>
+		  </li>
+   		</ul>
+	</div>			
+
+
+
+{%endblock content%}
+{%block scripts%}
+	<script>
+		$(document).ready(function(){
+    		$('.slider').slider({full_width: true, indicators:true});
+
+		});
+	</script>
+{%endblock scripts%}

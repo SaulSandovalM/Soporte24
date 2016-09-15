@@ -1,0 +1,65 @@
+{% extends 'base.html'%} {% block content%}
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Carrito</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <div id="wrapper" , class="center">
+        <br></br>
+        <h1 class="center">Tu carrito</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Imagen</th>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Quitar</th>
+                    <th>Precio Unitario</th>
+                    <th>SubTotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for item in cart%} {%with producto=item.producto%}
+                <tr>
+                    <td>
+                        <img src="/media/{{producto.imagen}}" height="100">
+                    </td>
+                    <td>
+                        {{producto.nombre}}
+                    </td>
+                    <td>
+                        {{item.quantity}}
+                    </td>
+                    <td>
+                        <a href="{%url 'cart:cart_remove' producto.id%}">Quitar</a>
+                    </td>
+                    <td>
+                        $ {{item.precio}}
+                    </td>
+                    <td>
+                        $ {{item.precio_total}}
+                    </td>
+                </tr>
+                {%endwith%} {%endfor%}
+                <tr>
+                    <td>Total</td>
+                    <td colspan="4"></td>
+                    <td>$ {{cart.get_precio_total}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <form action="{%url 'tienda:tienda'%}">
+
+            <input type="submit" value="Seguir Comprando">
+            <form action="">
+
+                <input type="submit" value="Pagar">
+    </div>
+</body>
+
+</html>
+{% endblock content%}
