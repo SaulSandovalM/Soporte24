@@ -13,13 +13,21 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url,include
+from django.conf.urls import url, include
+from django.conf import settings
+from django.views.static import serve
 from django.contrib import admin
-from main import urls as UrlsMain
 from tienda import urls as tiendaUrls
 from cart import urls as cartUrls
-from django.views.static import serve
-from django.conf import settings
+from orders import urls as orderUrls
+from paypal.standard.ipn import urls as paypalUrls
+from payment import urls as paymentUrls
+from main import urls as UrlsMain
+#for socialauth
+from django.views.generic import TemplateView
+from django.contrib.auth.views import logout
+
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -31,4 +39,19 @@ urlpatterns = [
             view=serve,
             kwargs ={'document_root':settings.MEDIA_ROOT}
         ),
+
+url(r'^orders/', include(orderUrls, namespace="orders")),
+    url(r'^paypal/', include(paypalUrls)),
+    url(r'^payment/', include(paymentUrls,namespace='payment')),
+
+    # Python Social Auth URLs
+    url('', include('social.apps.django_app.urls', namespace='social')),
+    # Home URL
+    url(r'^$', TemplateView.as_view(template_name="home.html"), name="home"),
+    # Logout URL
+    url(
+        r'^users/logout/$',
+        logout,
+        {'next_page': '/products'},
+        name="user-logout"),
 ]

@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'orders',
     'paypal.standard.ipn',
     'payment',
+    'social.apps.django_app.default',
 ]
 
 MIDDLEWARE = [
@@ -87,12 +88,6 @@ DATABASES = {
     }
 }
 
-#Update database configuration with $DATABASE_URL. para heroku
-#import dj_database_url
-#db_from_env = dj_database_url.config(conn_max_age=500)
-#DATABASES['default'].update(db_from_env)
-
-
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
 
@@ -134,6 +129,8 @@ STATIC_ROOT = 'staticfiles'
 SESSION_EXPIRE_AT_BROWSER_CLOSE = FalseTATICFILES_DIRS = (os.path.join(BASE_DIR,'static'),)
 #STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
-CART_SESSIONS_ID = 'cart'
+CART_SESSION_ID = 'cart'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'
+PAYPAL_RECEIVER_EMAIL = 'saul_watch_dogs@outlook.com'
+PAYPAL_TEST = True

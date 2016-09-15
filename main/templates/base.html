@@ -25,12 +25,9 @@
 	<!--Import jQuery before materialize.js-->
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="js/materialize.min.js"></script>
-<<<<<<< HEAD
-	<nav class="blue darken-4">
-=======
 
 	<nav class="blue darken-4 navbar-fixed">
->>>>>>> Ivan
+
 		<div class="nav-wrapper">
 			<a href="{%url 'home:home'%}" class="brand-logo">Soporte Técnico en computadoras</a>
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -43,13 +40,12 @@
 				{%with total_items=cart|length%}<img src="/media/tienda/carrito.png {{producto.imegen}}" height="20">
 				{{total_items}} {%if total_items > 0%}
 			 	{{total_items|pluralize}}
-			</a>{%else%} {{tota_items}} {%endif%}{%endwith%}</li>
+			  {%else%} {{tota_items}} {%endif%}{%endwith%}</a></li>
 			</ul>
 		</div>
 	</nav>
 
-<<<<<<< HEAD
-	{%block content%} {%endblock content%}
+	{%block content%}
 	<nav class="black darken-4">
 		<ul id="nav-mobile" class="center hide-on-med-and-dow">
 			<li><a>Soporte las 24 horas</a></li>
@@ -57,27 +53,21 @@
 				<li><a>Llamanos 7711548189</a></li>
 			</ul>
 	</nav>
-=======
 	<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-	    <a class="btn-floating btn-large red">
-	      <i class="large material-icons">mode_edit</i>
-	    </a>
-	    <ul>
-	      <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
-	      <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-	      <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-	      <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
-	    </ul>
-    </div>
+		<a class="btn-floating btn-large red">
+			<i class="large material-icons">mode_edit</i>
+		</a>
+		<ul>
+			<li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+			<li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+			<li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+			<li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+		</ul>
+	</div>
 
-	{%block content%} 
-
-	{%endblock content%}
-
->>>>>>> Ivan
+{%endblock content%}
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-
-	{%block scripts%} {%endblock scripts%}
+	 {%block scripts%} {%endblock scripts%}
 </body>
 
 </html>

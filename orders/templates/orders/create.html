@@ -1,20 +1,23 @@
 {%extends 'base.html'%} {%block titulo%} {%endblock titulo%} {%block content%}
-<h3>Confirm your order</h3>
 
-<ul>
-    {%for item in cart%}
-    <li>
-        {{item.quantity}} X {{item.product.name}}
-        <span>${{item.total_price}}</span>
-    </li>
-    {%endfor%}
-</ul>
-<p>
-    Total: $ {{cart.get_total_price}}
-</p>
-<form action="." method="post">
-    {%csrf_token%} {{form.as_p}}
-    <input type="submit" value="Pay">
-</form>
+<div id="wrapper" class="center">
+    <br></br>
+    <h3>Confirmacion de Orden</h3>
 
+    <ul>
+        {%for item in cart%}
+        <li>
+            {{item.quantity}} X {{item.producto.name}}
+            <span>${{item.precio_total}}</span>
+        </li>
+        {%endfor%}
+    </ul>
+    <p>
+        Total: $ {{cart.get_precio_total}}
+    </p>
+    <form action="." method="post" class="formulario_orden">
+        {%csrf_token%} {{form.as_p}}
+        <input type="submit" value="Pagar">
+    </form>
+</div>
 {%endblock content%}

@@ -24,14 +24,14 @@ class CreateOrder(View):
 			for item in cart:
 				OrderItem.objects.create(
 					order=order,
-					product=item['product'],
-					price=item['price'],
+					producto=item['producto'],
+					precio=item['precio'],
 					quantity=item['quantity']
 					)
 			#borrar carrito
 			cart.clear()
 			#enviaremos una tarea asíncrona a celery
-			order_created.delay(order.id)
+			#order_created.delay(order.id)
 
 			#orden para paypal
 			request.session['order_id']=order.id
