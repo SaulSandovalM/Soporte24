@@ -5,7 +5,7 @@
 	<h5>{{producto.nombre}}</h5>
 	<h4> $ {{producto.precio}}</h4>
 	<form action="{%url 'cart:cart_add' producto.id%}" method="post">
-		{%csrf_token%} {{form.as_p}}
+		{%csrf_token%}{{form.as_p}}
 		<input type="submit" value="Agregar al Carrito"></input>
 	</form>
 </div>

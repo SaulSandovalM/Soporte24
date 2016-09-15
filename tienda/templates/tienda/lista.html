@@ -9,11 +9,9 @@
 			<h4> $ {{producto.precio}}</h4>
 			<h5>{{producto.nombre}}</h5>
 		</a>
-		<form action="{%url 'cart:cart_add' producto.id%}" method="post">
+		<form action="{%url 'tienda:detalle' producto.id%}">
 			{%csrf_token%} {{form.as_p}}
-			<button class="btn azul">
-			AÑADIR AL CARRITO
-			</button>
+			<input type="submit" value="Detalle Producto"></input>
 		</form>
 	</div>
 	{%empty%}
