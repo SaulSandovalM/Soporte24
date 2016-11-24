@@ -30,7 +30,7 @@ class CreateOrder(View):
 					)
 			#borrar carrito
 			cart.clear()
-			#enviaremos una tarea asíncrona a celery
+			#enviaremos una tarea asincrona a celery
 			#order_created.delay(order.id)
 
 			#orden para paypal

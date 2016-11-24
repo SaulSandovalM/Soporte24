@@ -5,7 +5,7 @@ from .models import Order
 @task
 def order_created(order_id):
 	"""
-	Esta tarea enviará un email de que la orden fue creada con éxito
+	Esta tarea enviara un email de que la orden fue creada con exito
 	"""
 	order=Order.objects.get(id=order_id)
 	subject='Your order #{}'.format(order.id)
